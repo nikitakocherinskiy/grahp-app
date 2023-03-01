@@ -1,1 +1,1 @@
-#grahp-app
+Graph app, using React, Tailwind, cytoscape.js
