@@ -29,7 +29,6 @@ function Graph() {
 
 	useEffect(() => {
 		getEdges()
-		console.log(edges)
 	}, [getEdges])
 
 	const buildGraph = () => {
