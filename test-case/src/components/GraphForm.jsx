@@ -4,9 +4,9 @@ import MyButton from './MyButton'
 import axios from 'axios'
 
 function GraphForm() {
-	const [fromId, setFromId] = useState(0)
-	const [toId, setToId] = useState(0)
-	const [weight, setWeight] = useState(0)
+	const [fromId, setFromId] = useState('')
+	const [toId, setToId] = useState('')
+	const [weight, setWeight] = useState('')
 
 	const createEdge = async (e) => {
 		e.preventDefault()
@@ -22,6 +22,11 @@ function GraphForm() {
 			})
 			.then(() => {
 				console.log(fromId, toId)
+			})
+			.then(() => {
+				setFromId('')
+				setToId('')
+				setWeight('')
 			})
 	}
 
@@ -43,7 +48,6 @@ function GraphForm() {
 				<GraphInput
 					header='Вес'
 					type='number'
-					step='0.01'
 					value={weight}
 					onChange={(e) => setWeight(+e.target.value)}
 				/>

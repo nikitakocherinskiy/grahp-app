@@ -29,9 +29,6 @@ app.get('/', (req, res) => {
 app.post('/edges', (req, res) => {
 	graph_model
 		.createEdge(req.body)
-		.then(() => {
-			console.log(req.body + '1dasda')
-		})
 		.then((response) => {
 			res.status(200).send(response)
 		})

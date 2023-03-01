@@ -17,17 +17,18 @@ const getEdges = () => {
 		})
 	})
 }
+
 const createEdge = (body) => {
 	return new Promise(function (resolve, reject) {
-		const { from, to, weight } = body
+		const { fromId, toId, weight } = body
 		pool.query(
 			'INSERT INTO edges (from_id, to_id, weight) VALUES ($1, $2, $3) RETURNING *',
-			[from, to, weight],
+			[fromId, toId, weight],
 			(error, results) => {
 				if (error) {
 					reject(error)
 				}
-				resolve(`${body}`)
+				resolve(results.rows)
 			}
 		)
 	})
